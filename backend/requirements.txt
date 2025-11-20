@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+SQLAlchemy
+pymysql
+python-dotenv
+celery
+redis
+requests
+google-auth

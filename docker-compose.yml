@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8
+    container_name: geofence-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: geofence_db
+      MYSQL_USER: geofence_user
+      MYSQL_PASSWORD: geofence_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  redis:
+    image: redis:7
+    container_name: geofence-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+volumes:
+  mysql_data:
